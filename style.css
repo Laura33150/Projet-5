@@ -46,6 +46,18 @@
   background-color: #F3E9F1;
 }
 
+.titre {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(100, 15, 100);
+}
+
+.content {
+  margin: 15px;
+  margin-bottom: 30px;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
