@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -609,8 +610,10 @@ pre code {
   margin-left: -15px;
 }
 
-.row_footer {
-  margin-bottom: 15px;
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .no-gutters {
@@ -634,6 +637,10 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.col-sm-12 {
+  text-align: center;
 }
 
 .col {
@@ -4583,6 +4590,13 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+.card {
+  align-items: center;
+  margin: 10px;
+  border: #F3E9F1 solid 2px;
+  padding: 5px;
 }
 
 .card > hr {
@@ -9783,6 +9797,7 @@ button.bg-dark:focus {
   text-align: center !important;
   font-size: 25px;
   color: rgb(94, 37, 94);
+  margin-right: 20px;
 }
 
 @media (min-width: 576px) {

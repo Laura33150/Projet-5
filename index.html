@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <!--Fonts-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
@@ -26,6 +26,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+
+    
+
     <title>Orinoco</title>
 
 </head>
@@ -55,11 +58,15 @@
     <div class="jumbotron">
         <h1>Bienvenue chez ORINOCO !</h1>
     </div>
-    <article class="container">
-        <div class="col"><img src="images/teddy_1.jpg" alt="photo d'un ours en peluche"><a href="pages_annexes/teddy.html">Teddy</div>
-        <div class="col"><img src="images/oak_1.jpg" alt="photo d'une table en bois"><a href="pages_annexes/oak.html">Table en bois</a></div>
-        <div class="col"><img src="images/vcam_1.jpg" alt="photo d'un appareil photo"><a href="pages_annexes/camera.html">Appareil Photo</a></div>
-    </article>
+    <section class="container">
+
+        <h3 class="row">Voici notre gamme de caméras vintages !</h3>
+    
+        <div id="Produits" class="row">
+            <!--Contiendra les caméras, chacun dans un article-->
+        </div>
+    
+      </section>
     <footer class="container-fluid bc-primary">
         <div class="row row_footer">
             <div class="col-sm-12">
@@ -83,12 +90,14 @@
             </div>
         </div>
 
-        <div class="row row_footer">
+        <div class="row">
             <div class="col-sm-12 bc-primary">
                 <a class="text-center" href="mailto:orinoco@gmail.com">Contactez-nous</a>
                 <a class="text-center" href="pages_annexes/mentionslegales.html">Mentions Légales</a>
             </div>
         </div>
+
+        <script src="./js/index.js"></script>
 
 
     </footer>
