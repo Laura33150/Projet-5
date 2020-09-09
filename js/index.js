@@ -28,5 +28,5 @@ function createDiv (data){
     html += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">"; 
     html += "<a href='./pages_annexes/produit.html?id=" + data._id +"'><button type='button' id=" + data._id + " class='btn bg-brown'> Voir produit </button> </a>"; //création variable html pour avoir les infos afficher sur le site
 
-    return html; //function affiché
+    return html; //function affichée
 };
