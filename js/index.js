@@ -26,7 +26,7 @@ camera.send(); //s'il faut renvoyer des infos au server
 function createDiv (data){
     let html = "<h5 class='Nom card-title'>Voici " + data.name + "</h5>";
     html += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">"; 
-    html += "<a href='produit.html?id=" + data._id +"'><button type='button' id=" + data._id + " class='btn bg-brown'> Voir produit </button> </a>"; //création variable html pour avoir les infos afficher sur le site
+    html += "<a href='./pages_annexes/produit.html?id=" + data._id +"'><button type='button' id=" + data._id + " class='btn bg-brown'> Voir produit </button> </a>"; //création variable html pour avoir les infos afficher sur le site
 
     return html; //function affiché
 };
