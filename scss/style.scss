@@ -3,6 +3,29 @@ $brown: rgb(51, 21, 21);
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+/*Animation*/
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    3% {
+        transform: rotate(-2deg)
+    }
+
+    4% {
+        transform: rotate(2deg)
+    }
+
+    5% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
 body {
     color: purple;
 }
@@ -12,20 +35,72 @@ a {
     margin-right: 20px;
 }
 
-.navbar-nav .nav-link .navbar-dark .active .nav-item {
+a:hover {
+    color: rebeccapurple;
+    text-decoration: none;
+  }
+
+/*Header*/
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
     color: purple;
 }
 
-.social {
-    color: $brown;
+.navbar-dark .navbar-nav .nav-link {
+    color: purple;
     font-size: 20px;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: rebeccapurple; 
+    animation: wiggle 0.8s;
+}
+
+/*Jumbotron*/
+.jumbotron {
+    color: black;
+}
+
+h3 {
+    color: black;
+}
+
+
+/*Content*/
+.card {
+    align-items: center;
+    margin: 10px;
+    border: $primary solid 2px;
+    padding: 5px;
 }
 
 .btn {
     padding-top: 5px;
-    color: black;
+    align-self: stretch;
+    transform: scale(1);
+    color: purple;
+    font-weight: bold;
     padding: 5px 10px;
     font-size: 18px;
+
+    &:hover {
+        transform: scale(1.25);
+        color: purple;
+    }
+
+}
+
+.boutonChoix .btn {
+    margin: 2px 10px;
+}
+
+/*Footer*/
+.social {
+    color: $brown;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .text-center {

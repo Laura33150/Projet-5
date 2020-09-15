@@ -4240,13 +4240,13 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: purple;
+  color: #fff;
 }
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: purple;
+  color: rgba(255, 255, 255, 0.5);
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -4258,7 +4258,7 @@ input[type=button].btn-block {
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: purple;
+  color: #fff;
 }
 .navbar-dark .navbar-toggler {
   color: rgba(255, 255, 255, 0.5);
@@ -9893,6 +9893,24 @@ h3 {
     border-color: #dee2e6;
   }
 }
+/*Animation*/
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  3% {
+    transform: rotate(-2deg);
+  }
+  4% {
+    transform: rotate(2deg);
+  }
+  5% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 body {
   color: purple;
 }
@@ -9902,20 +9920,69 @@ a {
   margin-right: 20px;
 }
 
-.navbar-nav .nav-link .navbar-dark .active .nav-item {
+a:hover {
+  color: rebeccapurple;
+  text-decoration: none;
+}
+
+/*Header*/
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
   color: purple;
 }
 
-.social {
-  color: #331515;
+.navbar-dark .navbar-nav .nav-link {
+  color: purple;
   font-size: 20px;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color: rebeccapurple;
+  animation: wiggle 0.8s;
+}
+
+/*Jumbotron*/
+.jumbotron {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+/*Content*/
+.card {
+  align-items: center;
+  margin: 10px;
+  border: #F3EAF1 solid 2px;
+  padding: 5px;
 }
 
 .btn {
   padding-top: 5px;
-  color: black;
+  align-self: stretch;
+  transform: scale(1);
+  color: purple;
+  font-weight: bold;
   padding: 5px 10px;
   font-size: 18px;
+}
+.btn:hover {
+  transform: scale(1.25);
+  color: purple;
+}
+
+.boutonChoix .btn {
+  margin: 2px 10px;
+}
+
+/*Footer*/
+.social {
+  color: #331515;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .text-center {
