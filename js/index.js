@@ -1,32 +1,34 @@
+const { response } = require("express");
+
 let produit = document.getElementById ("Produits"); //Création de la variable produit sur l'id 'Produits'
-let camera = new XMLHttpRequest (); //Création de la variable camera qui va afficher la requête server
 
-camera.onreadystatechange = function (){ //function pour aller chercher sur le server les infos utiles
-    //console.log(this);
+function getAllCamerasinfos (){    
+   fetch('http://localhost:3000/api/cameras');
+   .then(response => console.log(response.json));
 
-    if (this.readyState == 4 && this.status == 200) {
-        let data = JSON.parse(this.response); 
-        //console.log (this.response);
-        
-        for ( let i=0; i < data.length; i++ ) { // création de la boucle pour demander TOUT les produits
-            let tout = document.createElement("div");
-            tout.className = "card"; // création d'une div ou les élémént (nom, image et id) seront présent
-            tout.innerHTML = createDiv(data[i]); 
-            produit.appendChild(tout);
-        }
-
-    } else if (this.readyState == 4 && this.status == 404){
-        alert ("Erreur 404"); // si jamais erreure 404
+   response = await fetch('http://localhost:3000/api/cameras');
+   let data = await response.json();
+   return data;
     };
-};
 
-camera.open("Get", "http://localhost:3000/api/cameras", true); //ouverture du fichier, true (pour l'async)
-camera.send(); //s'il faut renvoyer des infos au server
+function createCameraListing(allCamerasData){
+    let container = document.createElement('div');
+    container.classList.add('cameras-list');
+    for ( let i=0; i < allCamerasData.length; i++ ) { // création de la boucle pour demander TOUS les produits
+        let cameraData = allCamerasData[i];
+        let cardElt = createCameraCard(cameraData); 
+        container.appendChild(cardElt);
+    }
+    return container;
+}
 
-function createDiv (data){
-    let html = "<h5 class='Nom card-title'>Voici " + data.name + "</h5>";
-    html += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">"; 
-    html += "<a href='./pages_annexes/produit.html?id=" + data._id +"'><button type='button' id=" + data._id + " class='btn bg-brown'> Voir produit </button> </a>"; //création variable html pour avoir les infos afficher sur le site
+function createCameraCard (cameraData){
+    let cardElt = document.createElement("div");
+    cardElt.className = "card"; // création d'une div ou les éléménts (nom, image et id) seront présents
+    let html = "<h5 class='Nom card-title'>Voici " + cameraData.name + "</h5>";
+    html += "<img class='Images card-img-top' src=" + cameraData.imageUrl + " alt= " + cameraData.name + ">"; 
+    html += "<a href='./pages_annexes/produit.html?id=" + cameraData._id +"'><button type='button' id=" + cameraData._id + " class='btn bg-primary'> Voir produit </button> </a>"; //création variable html pour avoir les infos afficher sur le site
 
-    return html; //function affichée
+    cardElt.innerHTML = html;
+    return cardElt; //fonction affichée
 };
