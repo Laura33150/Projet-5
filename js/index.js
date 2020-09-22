@@ -1,17 +1,13 @@
-const { response } = require("express");
-
 let produit = document.getElementById ("Produits"); //Création de la variable produit sur l'id 'Produits'
 
-function getAllCamerasinfos (){    
-   fetch('http://localhost:3000/api/cameras');
-   .then(response => console.log(response.json));
+async function getAllCamerasinfos (){    
 
    response = await fetch('http://localhost:3000/api/cameras');
    let data = await response.json();
    return data;
     };
 
-function createCameraListing(allCamerasData){
+function createCameraListing (allCamerasData){
     let container = document.createElement('div');
     container.classList.add('cameras-list');
     for ( let i=0; i < allCamerasData.length; i++ ) { // création de la boucle pour demander TOUS les produits
@@ -32,3 +28,5 @@ function createCameraCard (cameraData){
     cardElt.innerHTML = html;
     return cardElt; //fonction affichée
 };
+
+getAllCamerasinfos().then( data => produit.appendChild(createCameraListing(data)));
