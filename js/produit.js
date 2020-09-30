@@ -3,10 +3,14 @@ const strRequete = window.location.search; // pour trouver et ouvrir la bonne pa
 const urlParam = new URLSearchParams(strRequete);
 //console.log(urlParam);
 
-let produitsP = document.getElementById ("ProduitP"); // appel de l'id ProduitP
-let achat = document.getElementById ("achat");
-let choix = document.getElementById("choix");
+let produitsP = document.getElementById("ProduitP"); // appel de l'id ProduitP
+let achat = document.getElementById("achat");/**
+* @returns [Camera]
+*/
 
-let ol = document.createElement("option");
-    ol.textContent = "";
-choix.appendChild(ol);
+apiGetCameraInfo(urlParam.get('id')).then(data =>{
+    console.log(data);
+});
+
+
+
