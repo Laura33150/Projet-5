@@ -50,7 +50,7 @@ class CameraInterface {
     }
 
     static getCameraCustomizeSelector(camera) {
-        let lenses = data.lenses;
+        let lenses = camera.lenses;
         let el = document.createElement('option');
         for (let i = 0; i < lenses.length; i++) { // création de la boucle pour demander TOUS les produits
             let option = lenses[i];
