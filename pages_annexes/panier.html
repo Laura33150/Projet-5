@@ -53,9 +53,63 @@
         </div>
     </header>
 
-    <div class="container">
-        <p>Panier</p>
-    </div>
+    <section class="container">
+
+        <h3 class="row">Votre panier!</h3>
+
+        <div class="row">
+
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th class="Nom">Nom</th>
+                        <th class="¨Prix">Prix</th>
+                        <th class="Quantité">Quantité</th>
+                        <th class="Subtotal">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-tablebody"></tbody>
+            </table>
+           
+                <p>Total du panier: <span id="Total"></span> €</p>
+
+        </div>
+
+        <div class="display">
+
+            <article id="formulaire" class="row">
+
+                <form id="monformulaire">
+                    <h3>Informations</h3>
+                    
+                    <label for="nom">Nom:</label>
+                    <input type="text" placeholder="nom" id="nom" class="champ">
+                    <br>
+                    
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" placeholder="prénom" id="prenom" class="champ">
+                    <br>
+
+                    <label for="adresse">Adresse:</label>
+                    <input type="text" placeholder="adresse" id="adresse" class="champ">
+                    <br>
+                
+                    <label for="ville">Ville:</label>
+                    <input type="text" placeholder="ville" id="ville" class="champ">
+                    <br>
+
+                    <label for="email">E-mail:</label>
+                    <input type="text" placeholder="email" id="email" class="champ">
+
+                </form> 
+
+                <input type="submit" id="commande" class="btn bg-brown valide">
+            </article> 
+
+            <div class="boutonChoix">
+                <button id="vider" class="btn bg-primary">Vider mon panier</button>
+                <a href='../index.html' id='index' class="btn bg-primary"> retour à l'accueil</a>
+            </div>
 
     <!--Footer-->
     <footer class="container-fluid bg-primary text-center">
@@ -88,7 +142,7 @@
             </div>
         </div>
 
-        <script src=""></script>
+        <script src="../js/panier.js"></script>
 
 
     </footer>
