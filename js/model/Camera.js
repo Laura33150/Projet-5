@@ -1,13 +1,14 @@
 class Camera {
-    constructor(id,name, image, description, price) {
+    constructor(id,name, imageUrl, description, price, lenses) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.imageUrl = imageUrl;
         this.description = description;
         this.price = price;
+        this.lenses = lenses;
     }
 
     getFullName(){
-        return this.name + ' ' +  this.id;
+        return 'Voici  ' +  this.name;
     }
 }
