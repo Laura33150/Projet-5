@@ -1,14 +1,14 @@
 /**
  * @returns [Camera]
  */
-async function apiGetAllCamerasInfos() {
-    response = await fetch('http://localhost:3000/api/cameras');
+export async function apiGetAllCamerasInfos() {
+    let response = await fetch('http://localhost:3000/api/cameras');
     let data = await response.json();
     return data;
 };
 
-async function apiGetCameraInfo(id) {
-    response = await fetch('http://localhost:3000/api/cameras/'+id);
+export async function apiGetCameraInfo(id) {
+    let response = await fetch('http://localhost:3000/api/cameras/'+id);
     let data = await response.json();
     return data;
  };

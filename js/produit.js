@@ -1,3 +1,8 @@
+import {apiGetCameraInfo} from  './api.js';
+import Camera from './model/Camera.js';
+import CameraInterface from './interface/CameraInterface.js';
+import CartInterface from './interface/CartInterface.js';
+
 const strRequete = window.location.search; // pour trouver et ouvrir la bonne page id
 //console.log(strRequete);
 const urlParam = new URLSearchParams(strRequete);
@@ -5,18 +10,17 @@ const urlParam = new URLSearchParams(strRequete);
 
 let produitsP = document.getElementById("ProduitP"); // appel de l'id ProduitP
 let achat = document.getElementById("achat");
-let ol = document.createElement("option");
-    ol.textContent = "";
-choix.appendChild(ol);
 /**
 * @returns [Camera]
 */
 
 apiGetCameraInfo(urlParam.get('id')).then(data =>{
-    console.log(data);
+    
     let camera = new Camera(data.id,data.name,data.imageUrl,data.description,data.price,data.lenses);
-    let elt =CameraInterface.getFullCameraDetailsElt(camera);
+    console.log(camera);
+    let elt = CameraInterface.getFullCameraDetailsElt(camera);
     produitsP.appendChild(elt);
+    achat.appendChild(CartInterface.getCameraCustomizeSelector(camera))
 });
 
 

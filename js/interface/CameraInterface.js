@@ -1,4 +1,4 @@
-class CameraInterface {
+export default class CameraInterface {
 
     /**
      * 
@@ -41,31 +41,22 @@ class CameraInterface {
         let html = "<h5 class='name card-title'>Voici " + camera.getFullName() + "</h5>";
         html += "<img class='images card-img-top' src=" + camera.imageUrl + " alt= " + camera.name + ">";
         html += "<p class= description card-txt>" + camera.description + "</p>";
-        let bouton = "<h6>" + camera.price + " €</h6>";
-        bouton += "<button type='button' id='ajout-panier' data-id='" + camera.id + "' data-name='" + camera.name + "' data-price='" + camera.price / 100 + "' class='btn bg-primary'> ajoutez au panier </button>";
-        
         cardElt.innerHTML = html;
-        achat.innerHTML += bouton;
+        
         return cardElt;
     }
 
     static getCameraCustomizeSelector(camera) {
         let lenses = camera.lenses;
-        let el = document.createElement('option');
+       let choix = document.getElementById('choix');
+       choix.innerHTML = "";
         for (let i = 0; i < lenses.length; i++) { // création de la boucle pour demander TOUS les produits
+             let el = document.createElement('option');
             let option = lenses[i];
             el.textContent = option;
             el.value= option;
-        choix.appendChild(el);
+            choix.appendChild(el);
         }
-        return el;
+        return choix;
 }
-    
-
-
-//creation de la partie menu deroulant
-// CameraInterface.getCameraCustomizeSelector(camera)
- //     }  
-
-   //     static getCameraCustomizeSelector(caemra)
 }

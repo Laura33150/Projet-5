@@ -1,3 +1,7 @@
+import {apiGetAllCamerasInfos} from  './api.js';
+import Camera from './model/Camera.js';
+import CameraInterface from './interface/CameraInterface.js';
+
 let produit = document.getElementById("Produits"); //Création de la variable produit sur l'id 'Produits'
 
 apiGetAllCamerasInfos().then(data => {

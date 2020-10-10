@@ -1,4 +1,4 @@
-class Camera {
+export default class Camera {
     constructor(id,name, imageUrl, description, price, lenses) {
         this.id = id;
         this.name = name;
