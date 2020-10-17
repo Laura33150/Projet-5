@@ -45,18 +45,4 @@ export default class CameraInterface {
         
         return cardElt;
     }
-
-    static getCameraCustomizeSelector(camera) {
-        let lenses = camera.lenses;
-       let choix = document.getElementById('choix');
-       choix.innerHTML = "";
-        for (let i = 0; i < lenses.length; i++) { // création de la boucle pour demander TOUS les produits
-             let el = document.createElement('option');
-            let option = lenses[i];
-            el.textContent = option;
-            el.value= option;
-            choix.appendChild(el);
-        }
-        return choix;
-}
 }

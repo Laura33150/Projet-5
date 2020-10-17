@@ -44,8 +44,6 @@ else {
 
 }
 
-
-} 
 else if (this.readyState == 4 && this.status == 400){
 alert ("Erreur 404!");
-};
+}

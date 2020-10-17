@@ -113,7 +113,7 @@ commande.addEventListener("click", () => {
 
         //console.log(datajson);
 
-        sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) {  //envois des inforamtions et supprime celle inutile, puis redirection
+        sending("http://localhost:3000/api/cameras/order", dataJson).then(function (orderId) {  //envois des inforamtions et supprime celle inutile, puis redirection
             localStorage.clear();
             localStorage.setItem("contact",  JSON.stringify(Contact));
             localStorage.setItem("total", total);
