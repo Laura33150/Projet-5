@@ -38,37 +38,19 @@ export default class CartInterface {
         });
 
         return container;
-
-
-    };
-let quantity = document.createElement('label');
-quantity.for = "quantity";
-quantity.textContent = "Quantité : ";
-quantity.className = "selectQuantity";
-let selectQuantity = document.createElement('select');
-selectQuantity.name = "quantity";
-selectQuantity.id = "quantityChoose";
- function optionQuantity() {
-    let j = 0;
-    while (j <= 8) {
-        j++;
-        let option = document.createElement('option');
-        option.textContent = j;
-        option.value = j;
-        selectQuantity.appendChild(option);}} optionQuantity();
-
-    //static getCameraQtySelector(camera) {
-        // Creation du menu déroulant
-        //let container = document.createElement('div');
-        //let selectElt1 = document.createElement('select');
-        //let qty = camera.qty = 10;
-        //for (let i = 0; i < qty; i++) { // création de la boucle pour choisir jusqu'à 10 produits
-            //let el = document.createElement('option');
-            //let option = qty[i];
-            //el.textContent = option;
-            //el.value = option;
-            //selectElt1.appendChild(el);
-        //}
-        //container.appendChild(selectElt1);
-    //}
-//}
+    }
+        static getCameraQtySelector() {
+            //Creation du menu déroulant
+            let container = document.createElement('div');
+            let selectElt = document.createElement('select');
+            let qty = 10;
+            for (let i = 0; i < qty; i++) { // création de la boucle pour choisir jusqu'à 10 produits
+                let el = document.createElement('option');
+                let option = qty[i];
+                el.textContent = option;
+                el.value = option;
+                selectElt.appendChild(el);
+            }
+            container.appendChild(selectElt);
+        };
+    }

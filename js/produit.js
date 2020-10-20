@@ -24,18 +24,6 @@ apiGetCameraInfo(urlParam.get('id')).then(data =>{
     let elt = CameraInterface.getFullCameraDetailsElt(camera);
     produitsP.appendChild(elt);
     achat.appendChild(CartInterface.getCameraCustomizeSelector(camera));
+    qty.appendChild(CartInterface.getCameraQtySelector());
 
 });
-
-//qty.appendChild(CartInterface.getCameraQtySelector(camera));
-
-
-//let cart = new Cart();
-
-//console.log(cart);
-
-//cart.addItem()
-//cart.addItem()
-
-//console.log(cart);
-
