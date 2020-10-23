@@ -1,3 +1,5 @@
+import Cart from "../model/Cart.js";
+
 export default class CartInterface {
 
 
@@ -5,6 +7,10 @@ export default class CartInterface {
     static getCameraCustomizeSelector(camera) {
         // Creation du menu déroulant
         let container = document.createElement('div');
+
+        let qtySelectElt = this.getCameraQtySelector();
+container.appendChild(qtySelectElt);
+
         let selectElt = document.createElement('select');
         let lenses = camera.lenses;
         for (let i = 0; i < lenses.length; i++) { // création de la boucle pour demander TOUS les produits
@@ -34,23 +40,24 @@ export default class CartInterface {
         container.appendChild(buttonElt)
 
         buttonElt.addEventListener('click', e => {
-            // Cart.addProduct(data,choice, qty)
+            let cart = new Cart();
+            cart.addItem({...camera, choice:selectElt.value}, qtySelectElt.value);
+            console.log(cart)
         });
 
         return container;
     }
         static getCameraQtySelector() {
             //Creation du menu déroulant
-            let container = document.createElement('div');
             let selectElt = document.createElement('select');
             let qty = 10;
             for (let i = 0; i < qty; i++) { // création de la boucle pour choisir jusqu'à 10 produits
                 let el = document.createElement('option');
-                let option = qty[i];
+                let option = i+1;
                 el.textContent = option;
                 el.value = option;
                 selectElt.appendChild(el);
             }
-            container.appendChild(selectElt);
+            return selectElt;
         };
     }
