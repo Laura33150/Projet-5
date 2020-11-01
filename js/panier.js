@@ -1,49 +1,9 @@
-let total = 0;
-let table = document.getElementById("cart-tablebody");
-let totalPanier  = document.getElementById("Total");
-let lastName = document.getElementById("nom");
-let firstName = document.getElementById("prenom");
-let address = document.getElementById("adresse");
-let city = document.getElementById("ville");
-let email = document.getElementById("email");
+import CartInterface from './interface/CartInterface.js';
+import Cart from './model/Cart.js';
 
-let products = []; //Création des tableaux à envoyer au serveur
-let Contact = {};
-let data = {};
-let html = "" ;
+const cart = new Cart();
 
-//console.log(localStorage.length);
-               
-
-for(let i = 0; i < localStorage.length ; ++i){
-    let clef = localStorage.key(i); //récupération des informations à partir du localStorage
-    if ( clef !== "ProduitPanier"){
-        //console.log(clef);
-        let ligne = JSON.parse( localStorage.getItem(clef));
-        html += "<tr>";  
-        html += "<td>"+ligne.name+"</td>";
-        html += "<td>"+ligne.price/100+" €</td>";
-        html += "<td>"+ligne.qte+"</td>";
-        html += "<td>"+ligne.qte*ligne.price/100+" €</td>";
-        html+= "</tr>";
-        total += ligne.qte*ligne.price/100;
-        let i = ligne._id;
-        products.push(i);//Envois de l'id dans le tableau products
-    }
-}
-
-//console.log(listID);
-//console.log(html);
-table.innerHTML = html;
-totalPanier.innerHTML = total;
-
-let viderPanier= document.getElementById("vider"); //Event Listener pour vider le panier
-    viderPanier.addEventListener("click" , () => {
-        localStorage.clear();
-        location.reload();
-    })
-
-function validation(){ //Function qui vérfie les informations remplis dans les champs form
+function validation(){ 
 
     
     if(lastName.value.length <2 || lastName.value.length>30){
@@ -69,30 +29,22 @@ function validation(){ //Function qui vérfie les informations remplis dans les 
     return true;
 };
 
-function sending(url, order) { //Création de la promise pour envoyer les information avec POST
-    return new Promise(function (resolve, reject) {
-        let request = new XMLHttpRequest();
-        request.onreadystatechange = function (response) {
-           if (this.readyState == 4 && this.status == 201) {
-                resolve (JSON.parse(this.responseText).orderId);
-                
-            } else if (this.readyState == 4 && this.status == 404){
-                reject ("fail !!!!");
-            }
-        };
-        request.open("POST", url);
-        request.setRequestHeader("Content-Type", "application/json");
-        request.send(order);
-    });
-};
+
+let total = 0;
+let table = document.querySelector(".cart-interface");
+table.appendChild(CartInterface.getAllItemsTDs(cart));
+let totalOrder  = document.getElementById("Total");
+totalOrder.appendChild(Cart.totalOrder);
+let lastName = document.getElementById("nom");
+let firstName = document.getElementById("prenom");
+let address = document.getElementById("adresse");
+let city = document.getElementById("ville");
+let email = document.getElementById("email");
+let submit = document.getElementById("commande");
+submit.addEventListener("click", () => {
 
 
-
-let commande = document.getElementById("commande");
-commande.addEventListener("click", () => {
-
-
-    if(validation() == true){ //Compléte les tableau Contact,data si la validation est faite
+    if(validation() == true){ 
 
         Contact["lastName"] = lastName.value;
         Contact["firstName"] = firstName.value;
@@ -100,26 +52,17 @@ commande.addEventListener("click", () => {
         Contact["city"] = city.value;
         Contact["email"] = email.value;
 
-        //console.log(contact);
-
 
         data["contact"] = Contact;
         data["products"] = products;
 
-        //console.log(data);
-        //console.log(JSON.stringify(data));
+        let contact = JSON.stringify(data);
+apiSendOrder(contact).then(data =>{
 
-        let dataJson = JSON.stringify(data);
+})}})
 
-        //console.log(datajson);
-
-        sending("http://localhost:3000/api/cameras/order", dataJson).then(function (orderId) {  //envois des inforamtions et supprime celle inutile, puis redirection
-            localStorage.clear();
-            localStorage.setItem("contact",  JSON.stringify(Contact));
-            localStorage.setItem("total", total);
-            localStorage.setItem("orderId", orderId);
-            window.location.href = "confirmation.html";
-        }, function (failed){console.log(failed);});
-    }
-       
-});
+let clearcart= document.getElementById("vider"); 
+    clearcart.addEventListener("click" , () => {
+        localStorage.clear();
+        location.reload();
+    })
