@@ -5,21 +5,18 @@ export default class Cart {
   }
 
   addItem(item, qty) {
-
-    //Chercher dans ton tableau, si tu trouves pas item, tu push sinon tu augmente la qty
     let index = this.items.findIndex(elt => {
-      return (elt.item.name === item.name) && (elt.item.custom === item.custom);
-    });
-    if(index !== -1){
-      this.items.splice(index,1);
-    } 
-    if(index == this.item){
-
-    } 
-    this.items.push({item: item, qty:qty});
-    localStorage.setItem('cart', JSON.stringify(this.items));
-  }
-
+       return (elt.item.name === item.name) && (elt.item.custom === item.custom);
+     });
+     if(index > -1){
+       this.items[index].qty = Number(this.items[index].qty) + Number(qty);
+     }else{
+     
+     this.items.push({item: item, qty:qty});      
+     }
+     
+     localStorage.setItem('cart', JSON.stringify(this.items));
+   }
   deleteItem(item) {
     let index = this.items.findIndex(elt => {
       return (elt.item.name === item.name) && (elt.item.custom === item.custom);
@@ -35,6 +32,17 @@ export default class Cart {
     return this.items;
   }
 
+  totalOrder(totalOrder){
+    let container = document.createElement('div');
+    let calculationTotalOrder = 0;
+    for (let item in addItem) {
+        calculationTotalOrder += addItem[item].price * addItem[item].quantity;
+    }
+    priceCalculation(calculationTotalOrder, totalOrder);
+    container.appendChild(totalOrder);
+    return container;
+  }
+  
 
   clear() {
     this.items = [];
