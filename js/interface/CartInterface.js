@@ -9,7 +9,7 @@ export default class CartInterface {
         let container = document.createElement('div');
 
         let qtySelectElt = this.getCameraQtySelector();
-container.appendChild(qtySelectElt);
+        container.appendChild(qtySelectElt);
 
         let selectElt = document.createElement('select');
         let lenses = camera.lenses;
@@ -41,23 +41,65 @@ container.appendChild(qtySelectElt);
 
         buttonElt.addEventListener('click', e => {
             let cart = new Cart();
-            cart.addItem({...camera, choice:selectElt.value}, qtySelectElt.value);
+            cart.addItem({
+                ...camera,
+                choice: selectElt.value
+            }, qtySelectElt.value);
             console.log(cart)
         });
 
         return container;
     }
-        static getCameraQtySelector() {
-            //Creation du menu déroulant
-            let selectElt = document.createElement('select');
-            let qty = 10;
-            for (let i = 0; i < qty; i++) { // création de la boucle pour choisir jusqu'à 10 produits
-                let el = document.createElement('option');
-                let option = i+1;
-                el.textContent = option;
-                el.value = option;
-                selectElt.appendChild(el);
-            }
-            return selectElt;
-        };
+    static getCameraQtySelector() {
+        //Creation du menu déroulant
+        let selectElt = document.createElement('select');
+        let qty = 10;
+        for (let i = 0; i < qty; i++) { // création de la boucle pour choisir jusqu'à 10 produits
+            let el = document.createElement('option');
+            let option = i + 1;
+            el.textContent = option;
+            el.value = option;
+            selectElt.appendChild(el);
+        }
+        return selectElt;
+    };
+
+
+    static getAllItemsTDs(cart){
+        let containerElt = document.createElement('tbody');
+        cart.getItems().forEach(item => {
+            containerElt.appendChild(this.getCartTD(item));
+        });
+
+        return containerElt;
     }
+
+    static getCartTD(item){
+        let trElt = document.createElement('tr');
+
+
+        let tdElt = document.createElement('td');
+        tdElt.innerText = item.item.name;
+        trElt.appendChild(tdElt);
+
+        tdElt = document.createElement('td');
+        tdElt.innerText = item.item.price / 100;
+        trElt.appendChild(tdElt);
+
+        tdElt = document.createElement('td');
+        tdElt.innerText = item.qty;
+        trElt.appendChild(tdElt);
+
+        tdElt = document.createElement('td');
+        tdElt.innerText = item.item.price / 100 *item.qty;
+        trElt.appendChild(tdElt);
+
+
+        return trElt;
+
+    }
+
+
+}
+
+
