@@ -32,15 +32,23 @@ export default class Cart {
     return this.items;
   }
 
-  totalOrder(totalOrder){
-    let container = document.createElement('div');
+  totalOrder(){
     let calculationTotalOrder = 0;
-    for (let item in addItem) {
-        calculationTotalOrder += addItem[item].price * addItem[item].quantity;
-    }
-    priceCalculation(calculationTotalOrder, totalOrder);
-    container.appendChild(totalOrder);
-    return container;
+    console.log(this.items);
+    this.items.forEach(item => {
+      calculationTotalOrder += item.item.price/100 * item.qty;
+    });
+    return calculationTotalOrder;
+  }
+
+
+  getProductsIds(){
+    const ids = [];
+    this.items.forEach(item => {
+      ids.push(item.item.id);
+    });
+
+    return ids;
   }
   
 
