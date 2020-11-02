@@ -2,7 +2,6 @@ import {apiGetCameraInfo} from  './api.js';
 import Camera from './model/Camera.js';
 import CameraInterface from './interface/CameraInterface.js';
 import CartInterface from './interface/CartInterface.js';
-import Cart from './model/Cart.js';
 
 
 const strRequete = window.location.search; // pour trouver et ouvrir la bonne page id
@@ -12,7 +11,7 @@ const urlParam = new URLSearchParams(strRequete);
 
 let produitsP = document.getElementById("ProduitP"); // appel de l'id ProduitP
 let achat = document.getElementById("achat");
-let qty = document.getElementById("qty");
+
 /**
 * @returns [Camera]
 */
