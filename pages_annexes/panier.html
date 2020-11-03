@@ -59,7 +59,7 @@
 
         <div class="row">
 
-            <table class="table" >
+            <table class="table cart-interface" >
                 <thead>
                     <tr>
                         <th class="Nom">Nom</th>
@@ -101,16 +101,16 @@
                     <label for="email">E-mail:</label>
                     <input type="text" placeholder="email" id="email" class="champ">
 
+                <input type="submit" id="commande" class="btn bg-brown valide">
                 </form> 
 
-                <input type="submit" id="commande" class="btn bg-brown valide">
             </article> 
 
             <div class="boutonChoix">
                 <button id="vider" class="btn bg-primary">Vider mon panier</button>
-                <a href='../index.html' id='index' class="btn bg-primary"> retour à l'accueil</a>
+                <a href='../index.html' id='index' class="btn bg-primary"> Retour à l'accueil</a>
             </div>
-
+        </section>
     <!--Footer-->
     <footer class="container-fluid bg-primary text-center">
         <div class="row row_footer">
@@ -120,17 +120,17 @@
 
             <div class="col-sm-4">
                 <div class="text-center">
-                    <a class="social"><span class="fab fa-twitter icon">Twitter</span></a>
+                    <a class="social" href="../index.html"><span class="fab fa-twitter icon">Twitter</span></a>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="text-center">
-                    <a class="social"><span class="fab fa-facebook icon">Facebook</span></a>
+                    <a class="social" href="../index.html"><span class="fab fa-facebook icon">Facebook</span></a>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="text-center">
-                    <a class="social"><span class="fab fa-instagram icon">Instagram</span></a>
+                    <a class="social" href="../index.html"><span class="fab fa-instagram icon">Instagram</span></a>
                 </div>
             </div>
         </div>
@@ -138,12 +138,11 @@
         <div class="row">
             <div class="col-sm-12 bc-primary">
                 <a class="text-center" href="mailto:orinoco@gmail.com">Contactez-nous</a>
-                <a class="text-center" href="../pages_annexes/mentionslegales.html">Mentions Légales</a>
+                <a class="text-center" href="mentionslegales.html">Mentions Légales</a>
             </div>
         </div>
 
-        <script src="../js/panier.js"></script>
-
+        <script type="module" src="../js/panier.js"></script>
 
     </footer>
 
