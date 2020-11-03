@@ -55,10 +55,7 @@ form.addEventListener("submit", (e) => {
 
          apiSendOrder(data).then(result => {
             let orderId = result.orderId;
-            let firstName = result.firstName;
-            let lastName = result.lastName;
-            let total = result.total;
-            window.location.href = "../pages_annexes/confirmation.html?id="+orderId+firstName+lastName+total;
+            window.location.href = "../pages_annexes/confirmation.html?id="+orderId;
             cart.clear();
         });
     }else{
