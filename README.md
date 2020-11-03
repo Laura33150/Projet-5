@@ -1,15 +1,13 @@
 # Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
-
-### Prerequisites ###
-
-You will need to have Node and `npm` installed locally on your machine.
+Voici le front end du projet Orinoco
 
 ### Installation ###
 
-Clone this repo. From within the project folder, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+
+Pour lancer le projet il faut lancer un serveur local car ce projet utilise les modules javascript.
+Il faut donc lancer la commande npx hhtp-server sur le terminal.
+Puis lancer la commande node server.
+
+
+
