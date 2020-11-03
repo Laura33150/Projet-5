@@ -10000,6 +10000,20 @@ h6 {
   font-size: 20px;
 }
 
+/*Mentions légales*/
+.titre {
+  color: black;
+  font-size: 35px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.content {
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /*Responsive*/
 @media screen and (max-width: 1024px) {
   /*Header*/
