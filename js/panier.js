@@ -40,8 +40,8 @@ form.addEventListener("submit", (e) => {
 
 
     e.preventDefault();
-    let errors = [];
-
+    
+    let errors = validation()
     if (errors.length === 0) {
         let data = {};
         data.contact = {};
@@ -52,6 +52,7 @@ form.addEventListener("submit", (e) => {
         data.contact.email = email.value;
 
         data.products = cart.getProductsIds();
+        
 
          apiSendOrder(data).then(result => {
             let orderId = result.orderId;
@@ -68,3 +69,4 @@ clearcart.addEventListener("click", () => {
     cart.clear();
     location.reload();
 })
+
