@@ -41,7 +41,7 @@ form.addEventListener("submit", (e) => {
 
     e.preventDefault();
     
-    let errors = validation()
+    let errors = validation();
     if (errors.length === 0) {
         let data = {};
         data.contact = {};
