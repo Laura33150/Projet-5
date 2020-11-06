@@ -14,7 +14,7 @@ function validation() {
     if (firstName.value.length < 1 || firstName.value.length > 30) {
         errors.push("Veuillez remplir correctement le champ Prénom!\n");
     }
-    if (address.value.length < 5 || address.value.length > 250) {
+    if (address.value.length < 3 || address.value.length > 250) {
         errors.push("Veuillez remplir correctement le champ adresse!\n");
     }
     if (city.value.length < 2 || city.value.length > 70) {
@@ -40,8 +40,8 @@ form.addEventListener("submit", (e) => {
 
 
     e.preventDefault();
-    let errors = [];
-
+    
+    let errors = validation();
     if (errors.length === 0) {
         let data = {};
         data.contact = {};
@@ -52,6 +52,7 @@ form.addEventListener("submit", (e) => {
         data.contact.email = email.value;
 
         data.products = cart.getProductsIds();
+        
 
          apiSendOrder(data).then(result => {
             let orderId = result.orderId;
@@ -68,3 +69,4 @@ clearcart.addEventListener("click", () => {
     cart.clear();
     location.reload();
 })
+
