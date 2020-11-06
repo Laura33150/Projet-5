@@ -14,7 +14,7 @@ function validation() {
     if (firstName.value.length < 1 || firstName.value.length > 30) {
         errors.push("Veuillez remplir correctement le champ Prénom!\n");
     }
-    if (address.value.length < 5 || address.value.length > 250) {
+    if (address.value.length < 3 || address.value.length > 250) {
         errors.push("Veuillez remplir correctement le champ adresse!\n");
     }
     if (city.value.length < 2 || city.value.length > 70) {
